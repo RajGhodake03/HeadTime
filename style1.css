@@ -1,0 +1,237 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Roboto&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-text-color: #183b56;
+    --secondary-text-color: #577592;
+    --accent-color: #2294ed;
+    --accent-dark: #1a73e8;
+    --light-bg: #f9f9f9;
+    --padding-inline-section: 20px;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    color: var(--primary-text-color);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+}
+
+p {
+    font-family: "Roboto", sans-serif;
+    color: var(--secondary-text-color);
+    line-height: 1.6rem;
+    font-size: 0.95rem;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: var(--padding-inline-section);
+}
+
+nav {
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    left: 0;
+    right: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+nav img {
+    width: 48px;
+    height: 48px;
+}
+
+.main-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-block: 12px;
+}
+
+.nav-links ul {
+    display: flex;
+    gap: 20px;
+}
+
+.hover-link {
+    position: relative;
+    font-weight: 500;
+    color: var(--primary-text-color);
+    transition: color 0.2s ease;
+}
+
+.hover-link::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 0;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.hover-link:hover {
+    color: var(--accent-dark);
+}
+
+.hover-link:hover::after {
+    width: 100%;
+}
+
+.nav-item:active {
+    color: var(--accent-color);
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    height: 36px;
+}
+
+.news-input {
+    width: clamp(180px, 30vw, 240px);
+    height: 100%;
+    padding-inline: 14px;
+    border: 2px solid #d1d9e6;
+    border-radius: 6px;
+    outline: none;
+    font-family: "Roboto", sans-serif;
+    transition: border 0.2s ease;
+}
+
+.news-input:focus {
+    border-color: var(--accent-color);
+}
+
+.search-btn {
+    background-color: var(--accent-color);
+    color: white;
+    padding: 8px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-family: "Roboto", sans-serif;
+    transition: background-color 0.3s ease;
+}
+
+.search-btn:hover {
+    background-color: var(--primary-text-color);
+}
+
+main {
+    padding-block: 40px;
+    margin-top: 80px;
+}
+
+.cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+}
+
+.card {
+    width: 100%;
+    max-width: 360px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+}
+
+.card-header img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 16px;
+}
+
+.news-source {
+    margin-block: 10px;
+    font-size: 0.85rem;
+    color: var(--secondary-text-color);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .main-nav {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .nav-links ul {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .search-bar {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .cards-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card {
+        width: 90%;
+    }
+}
+
+@media (max-width: 480px) {
+    nav img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .search-btn {
+        padding: 6px 16px;
+    }
+
+    .news-input {
+        width: 100%;
+    }
+}
